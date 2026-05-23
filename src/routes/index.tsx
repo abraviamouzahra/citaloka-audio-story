@@ -37,7 +37,7 @@ const characters: Character[] = [
     accent: "#FB6D00",
     badge: "Jawa",
     title: "Lorem Ipsum Dolor Sit",
-    desc: "Consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore.",
+    desc: "Pandu merupakan anak seorang petani yang selalu bekerja keras dalam menanam berbagai bahan pokok bersama ayahnya, ia lahir di desa yang tepat di wilayah Jawa Timur. Pakaian pandu juga menjadi khas dari jati dirinya dengan lurik dan kesederhanaannya",
   },
   {
     name: "Satya",
@@ -46,7 +46,7 @@ const characters: Character[] = [
     accent: "#FFE500",
     badge: "Papua",
     title: "Lorem Ipsum Dolor Sit",
-    desc: "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris.",
+    desc: "Satya seorang anak laki-laki dengan warna kulitnya begitu eksotis dengan rambut ikal menjadi ciri khasnya. Ia suka sekali dengan pasar,  bukan karena apa tapi Satya terbiasa oleh aktivitas Ibunya yang berjualan bahan pokok di pasar. Logat yang cepat dengan bahasa papua menjadi ciri khas Satya dan Ibunya.",
   },
   {
     name: "Rara",
@@ -55,7 +55,7 @@ const characters: Character[] = [
     accent: "#FB6D00",
     badge: "Ngapak",
     title: "Lorem Ipsum Dolor Sit",
-    desc: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.",
+    desc: "Anak perempuan yang lucu dengan logatnya begitu berbeda, selain lucu karena cara bicaranya, Rara juga sangat senang sekali dengan warna merah muda. Tampak dari gayanya dengan pakaian berwarna merah muda, selain itu Rara juga terkenal dengan ‘anak rumahan’ terlihat dari Ibunya yang sangat penuh kasih sayang dengan anaknya.",
   },
   {
     name: "Sasa",
@@ -64,7 +64,7 @@ const characters: Character[] = [
     accent: "#FFE500",
     badge: "Bali",
     title: "Lorem Ipsum Dolor Sit",
-    desc: "Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia.",
+    desc: "Anak perempuan yang lucu dengan logatnya begitu berbeda, selain lucu karena cara bicaranya, Rara juga sangat senang sekali dengan warna merah muda. Tampak dari gayanya dengan pakaian berwarna merah muda, selain itu Rara juga terkenal dengan ‘anak rumahan’ terlihat dari Ibunya yang sangat penuh kasih sayang dengan anaknya.",
   },
 ];
 

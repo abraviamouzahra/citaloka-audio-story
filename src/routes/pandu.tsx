@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { ChevronLeft, Play, Share2, Heart, Clock } from "lucide-react";
 import pandu from "@/assets/subtheme/pandu-temp.png";
 
@@ -34,7 +34,15 @@ const stories: Story[] = [
 
 
 function PanduPage() {
-  const [selectedLanguage, setSelectedLanguage] = useState("Indonesia");
+  const [isFavorite, setIsFavorite] = useState(false);
+  const storyListRef = useRef<HTMLElement | null>(null);
+
+  const scrollToStoryList = () => {
+    storyListRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
   return (
     <main className="min-h-screen bg-background md:bg-[#ffffff]">
       <div className="mx-auto w-full max-w-md lg:max-w-6xl md:rounded-[32px] md:bg-white md:shadow-[0_10px_40px_rgba(0,0,0,0.06)] px-5 pb-16 pt-8 md:py-10">
@@ -105,21 +113,20 @@ function PanduPage() {
             Pandu • Subtema
           </p>
           <h1 className="mt-2 font-display text-[30px] leading-[1.05] text-foreground">
-            Lorem ipsum <span style={{ color: ACCENT }}>dolor</span> sit amet.
+            Pandu
           </h1>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-            Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua enim ad minim veniam.
+            Pandu merupakan anak seorang petani yang selalu bekerja keras dalam menanam berbagai bahan pokok bersama ayahnya, ia lahir di desa yang tepat di wilayah Jawa Timur. Pakaian pandu juga menjadi khas dari jati dirinya dengan lurik dan kesederhanaannya
           </p>
 
           {/* meta row */}
           <div className="mt-4 flex items-center gap-3 text-xs font-semibold text-muted-foreground">
             <span className="inline-flex items-center gap-1">
               <Clock className="h-3.5 w-3.5" />
-              7 min
+              4 min
             </span>
             <span className="h-1 w-1 rounded-full bg-muted-foreground/40" />
-            <span>3 halaman</span>
+            <span>3 audio</span>
             <span className="h-1 w-1 rounded-full bg-muted-foreground/40" />
             <span>Usia 4+</span>
           </div>
@@ -128,6 +135,7 @@ function PanduPage() {
           <div className="mt-5 flex items-center gap-3">
             <button
               type="button"
+              onClick={scrollToStoryList}
               className="flex h-12 flex-1 items-center justify-center gap-2 rounded-full font-display text-[15px] text-white transition-transform active:scale-[0.98]"
               style={{
                 backgroundColor: BG,
@@ -140,17 +148,22 @@ function PanduPage() {
             </button>
             <button
               type="button"
+              onClick={() => setIsFavorite(!isFavorite)}
               aria-label="Favorit"
               className="grid h-12 w-12 place-items-center rounded-full border bg-card transition-transform active:scale-95"
               style={{ borderColor: "var(--color-border)" }}
             >
-              <Heart className="h-5 w-5" style={{ color: ACCENT }} />
+              <Heart
+                className="h-5 w-5"
+                style={{ color: ACCENT }}
+                fill={isFavorite ? ACCENT : "none"}
+              />
             </button>
           </div>
         </section>
 
         {/* Story list */}
-        <section className="mt-10">
+        <section ref={storyListRef} className="mt-10 scroll-mt-6">
           <div className="flex items-end justify-between">
             <h2 className="font-display text-xl text-foreground">
               Daftar Cerita
