@@ -4,7 +4,7 @@ import logo from "@/assets/logo-citaloka-fc.png";
 import pandu from "@/assets/home/pandu.jpeg";
 import satya from "@/assets/home/satya.jpeg";
 import rara from "@/assets/home/rara.jpeg";
-import sasa from "@/assets/home/sasa.jpeg";
+import sasa from "@/assets/home/sasa-new.jpeg";
 
 export const Route = createFileRoute("/")({
   component: Index,

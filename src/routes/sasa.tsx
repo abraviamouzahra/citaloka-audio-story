@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useRef, useState } from "react";
 import { ChevronLeft, Play, Share2, Heart, Clock } from "lucide-react";
-import sasa from "@/assets/subtheme/sasa.jpeg";
+import sasa from "@/assets/subtheme/sasa-new.jpeg";
 
 export const Route = createFileRoute("/sasa")({
   component: SasaPage,

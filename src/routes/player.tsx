@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import pandu from "@/assets/player/pandu.jpeg";
 import satya from "@/assets/player/satya.jpeg";
 import rara from "@/assets/player/rara.jpeg";
-import sasa from "@/assets/player/sasa.jpeg";
+import sasa from "@/assets/player/sasa-new.jpeg";
 
 import panduIndonesia from "@/assets/audio/pandu-indonesia.mp3";
 import panduEnglish from "@/assets/audio/pandu-english.mp3";
