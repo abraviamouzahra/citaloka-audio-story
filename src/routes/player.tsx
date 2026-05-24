@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ChevronLeft, Play, Pause } from "lucide-react";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import pandu from "@/assets/player/pandu.jpeg";
 import satya from "@/assets/player/satya.jpeg";
@@ -37,7 +37,21 @@ function PlayerPage() {
     const [currentTime, setCurrentTime] = useState(0);
     const [durationTime, setDurationTime] = useState(0);
     const { title, duration, character } = Route.useSearch();
-    const language = title.split(" ").pop() ?? "Indonesia";
+    const getLanguage = (title: string) => {
+        const lowerTitle = title.toLowerCase();
+
+        if (lowerTitle.includes("english") || lowerTitle.includes("inggris")) {
+            return "English";
+        }
+
+        if (lowerTitle.includes("daerah")) {
+            return "Daerah";
+        }
+
+        return "Indonesia";
+    };
+
+    const language = getLanguage(title);
     const audioMap: Record<string, Record<string, string>> = {
         pandu: {
             Indonesia: panduIndonesia,
@@ -78,6 +92,18 @@ function PlayerPage() {
     const activeColor = colorMap[character] ?? "#41A96E";
     const posterImage = imageMap[character] ?? pandu;
     const audioRef = useRef<HTMLAudioElement | null>(null);
+
+    useEffect(() => {
+        const audio = audioRef.current;
+        if (!audio) return;
+
+        audio.pause();
+        audio.currentTime = 0;
+        audio.load();
+
+        setCurrentTime(0);
+        setIsPlaying(false);
+    }, [audioSrc]);
 
     const formatTime = (time: number) => {
         if (!Number.isFinite(time)) return "0:00";
@@ -198,16 +224,24 @@ function PlayerPage() {
                         <div className="mt-8 flex justify-center">
                             <button
                                 type="button"
-                                onClick={() => {
-                                    if (!audioRef.current) return;
+                                onClick={async () => {
+                                    const audio = audioRef.current;
+                                    if (!audio || !audioSrc) return;
 
-                                    if (isPlaying) {
-                                        audioRef.current.pause();
-                                    } else {
-                                        audioRef.current.play();
+                                    try {
+                                        if (isPlaying) {
+                                            audio.pause();
+                                            setIsPlaying(false);
+                                        } else {
+                                            audio.load();
+                                            await audio.play();
+                                            setIsPlaying(true);
+                                        }
+                                    } catch (error) {
+                                        console.log("Audio play failed:", error);
+                                        console.log("audioSrc:", audioSrc);
+                                        setIsPlaying(false);
                                     }
-
-                                    setIsPlaying(!isPlaying);
                                 }}
                                 className="grid h-20 w-20 place-items-center rounded-full text-white transition-transform active:scale-95"
                                 style={{
@@ -227,8 +261,14 @@ function PlayerPage() {
                 </section>
             </div>
             <audio
+                key={audioSrc}
                 ref={audioRef}
                 src={audioSrc}
+                onError={() => {
+                    console.log("Audio failed to load:", audioSrc);
+                }}
+                onPlay={() => setIsPlaying(true)}
+                onPause={() => setIsPlaying(false)}
                 onTimeUpdate={(e) => setCurrentTime(e.currentTarget.currentTime)}
                 onLoadedMetadata={(e) => {
                     const duration = e.currentTarget.duration;
