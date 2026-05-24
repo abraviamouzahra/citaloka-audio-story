@@ -2,10 +2,10 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ChevronLeft, Play, Pause } from "lucide-react";
 import { useRef, useState } from "react";
 
-import pandu from "@/assets/player/poster-pandu-temp.png";
-import satya from "@/assets/player/poster-satya-temp.png";
-import rara from "@/assets/player/poster-rara-temp.png";
-import sasa from "@/assets/player/poster-sasa-temp.png";
+import pandu from "@/assets/player/pandu.jpeg";
+import satya from "@/assets/player/satya.jpeg";
+import rara from "@/assets/player/rara.jpeg";
+import sasa from "@/assets/player/sasa.jpeg";
 
 import panduIndonesia from "@/assets/audio/pandu-indonesia.mp3";
 import panduEnglish from "@/assets/audio/pandu-english.mp3";

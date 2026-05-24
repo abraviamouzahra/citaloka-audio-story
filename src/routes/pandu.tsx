@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useRef, useState } from "react";
 import { ChevronLeft, Play, Share2, Heart, Clock } from "lucide-react";
-import pandu from "@/assets/subtheme/pandu-temp.png";
+import pandu from "@/assets/subtheme/pandu.jpeg";
 
 export const Route = createFileRoute("/pandu")({
   component: PanduPage,
@@ -27,9 +27,9 @@ type Story = {
 };
 
 const stories: Story[] = [
-  { num: "01", title: "Pandu Indonesia", duration: "1:15" },
-  { num: "02", title: "Pandu English", duration: "1:19" },
-  { num: "03", title: "Pandu Daerah", duration: "1:15" },
+  { num: "01", title: "Pandu: Bahasa Indonesia", duration: "1:15" },
+  { num: "02", title: "Pandu: Bahasa Inggris", duration: "1:19" },
+  { num: "03", title: "Pandu: Bahasa Daerah", duration: "1:15" },
 ];
 
 
@@ -47,7 +47,7 @@ function PanduPage() {
     <main className="min-h-screen bg-background md:bg-[#ffffff]">
       <div className="mx-auto w-full max-w-md lg:max-w-6xl md:rounded-[32px] md:bg-white md:shadow-[0_10px_40px_rgba(0,0,0,0.06)] px-5 pb-16 pt-8 md:py-10">
         {/* Top bar */}
-        <header className="flex items-center justify-between">
+        <header className="flex items-center gap-3">
           <Link
             to="/"
             className="grid h-10 w-10 place-items-center rounded-full border bg-card transition-transform active:scale-95"
@@ -56,17 +56,6 @@ function PanduPage() {
           >
             <ChevronLeft className="h-5 w-5 text-foreground" />
           </Link>
-          <span className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground">
-            Subtema
-          </span>
-          <button
-            type="button"
-            aria-label="Bagikan"
-            className="grid h-10 w-10 place-items-center rounded-full border bg-card transition-transform active:scale-95"
-            style={{ borderColor: "var(--color-border)" }}
-          >
-            <Share2 className="h-4 w-4 text-foreground" />
-          </button>
         </header>
 
         {/* Poster 4:5 */}
@@ -86,20 +75,18 @@ function PanduPage() {
                 background: `radial-gradient(circle at 75% 25%, ${ACCENT}, transparent 60%)`,
               }}
             />
-            <span
-              className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-white/90 px-3 py-1 text-[10px] font-bold uppercase tracking-widest backdrop-blur"
-              style={{ color: BG }}
+            <div
+              className="absolute left-3 top-3 z-20 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white shadow-lg backdrop-blur-md"
+              style={{
+                background: "rgba(0,0,0,0.45)",
+              }}
             >
-              <span
-                className="h-1.5 w-1.5 rounded-full"
-                style={{ backgroundColor: ACCENT }}
-              />
               Episode 01
-            </span>
+            </div>
             <img
               src={pandu}
               alt="Karakter Pandu"
-              className="absolute inset-0 h-full w-full object-contain object-bottom"
+              className="absolute inset-0 h-full w-full object-cover"
             />
           </div>
         </section>
@@ -110,7 +97,7 @@ function PanduPage() {
             className="text-[11px] font-bold uppercase tracking-widest"
             style={{ color: BG }}
           >
-            Pandu • Subtema
+            Pandu • Si Anak Petani
           </p>
           <h1 className="mt-2 font-display text-[30px] leading-[1.05] text-foreground">
             Pandu

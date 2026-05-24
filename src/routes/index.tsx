@@ -1,9 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Play, Headphones, Sparkles } from "lucide-react";
-import pandu from "@/assets/home/pandu.jpg";
-import satya from "@/assets/home/satya.jpg";
-import rara from "@/assets/home/rara.jpg";
-import sasa from "@/assets/home/sasa.jpg";
+import logo from "@/assets/logo-citaloka-fc.png";
+import pandu from "@/assets/home/pandu.jpeg";
+import satya from "@/assets/home/satya.jpeg";
+import rara from "@/assets/home/rara.jpeg";
+import sasa from "@/assets/home/sasa.jpeg";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -70,10 +71,11 @@ const characters: Character[] = [
 
 function Logo() {
   return (
-    <div className="font-display text-[34px] leading-[0.85] font-extrabold">
-      <div style={{ color: "var(--cl-green)" }}>Cita</div>
-      <div style={{ color: "var(--cl-orange)" }}>Loka</div>
-    </div>
+    <img
+      src={logo}
+      alt="Cita Loka Logo"
+      className="h-16 w-auto"
+    />
   );
 }
 
@@ -90,7 +92,7 @@ function CharacterCard({ c }: { c: Character }) {
           src={c.image}
           alt={`Karakter ${c.name}`}
           loading="lazy"
-          className="h-full w-full object-contain object-center p-3"
+          className="h-full w-full object-cover"
         />
       </div>
 
@@ -138,16 +140,7 @@ function Index() {
         {/* Header */}
         <header className="flex items-center justify-between">
           <Logo />
-          <div
-            className="grid h-10 w-10 place-items-center rounded-full border"
-            style={{ borderColor: "var(--color-border)" }}
-            aria-hidden
-          >
-            <span
-              className="h-2.5 w-2.5 rounded-full"
-              style={{ backgroundColor: "var(--cl-green)" }}
-            />
-          </div>
+         
         </header>
 
         {/* Hero copy */}
@@ -163,9 +156,9 @@ function Index() {
             Smart Play Kit
           </span>
           <h1 className="mt-3 font-display text-[34px] leading-[1.05] text-foreground">
-            Petualangan rasa{" "}
-            <span style={{ color: "var(--cl-orange)" }}>nusantara</span> untuk
-            si kecil.
+            Rahasia Dibalik{" "}
+            <span style={{ color: "var(--cl-orange)" }}></span> Isi
+            Piringku
           </h1>
           <p className="mt-2 text-sm font-semibold text-muted-foreground">
             Audio Story Pangan Lokal untuk Anak
