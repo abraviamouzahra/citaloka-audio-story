@@ -153,7 +153,7 @@ function Index() {
             }}
           >
             <Sparkles className="h-3 w-3" strokeWidth={2.5} />
-            Smart Play Kit
+            Edu Game Kit
           </span>
           <h1 className="mt-3 font-display text-[34px] leading-[1.05] text-foreground">
             Rahasia Dibalik{" "}
