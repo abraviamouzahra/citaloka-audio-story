@@ -133,7 +133,7 @@ function PlayerPage() {
             <div className="mx-auto w-full max-w-md lg:max-w-6xl md:rounded-[32px] md:bg-white md:shadow-[0_10px_40px_rgba(0,0,0,0.06)] px-5 pb-16 pt-8 md:py-10">
                 <header className="flex items-center justify-between">
                     <Link
-                        to={`/${character}`}
+                        to="/"
                         className="grid h-10 w-10 place-items-center rounded-full border bg-card"
                         style={{ borderColor: "var(--color-border)" }}
                     >

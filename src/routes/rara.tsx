@@ -7,7 +7,7 @@ export const Route = createFileRoute("/rara")({
   component: RaraPage,
   head: () => ({
     meta: [
-      { title: "Rara — Cita Loka Audio Story" },
+      { title: "Rara — Saparasa Audio Story" },
       {
         name: "description",
         content:

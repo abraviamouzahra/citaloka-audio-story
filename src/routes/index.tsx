@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Play, Headphones, Sparkles } from "lucide-react";
-import logo from "@/assets/logo-citaloka-fc.png";
+import logo from "@/assets/logo-saparasa-fc.png";
 import pandu from "@/assets/home/pandu.jpeg";
 import satya from "@/assets/home/satya.jpeg";
 import rara from "@/assets/home/rara.jpeg";
@@ -10,11 +10,11 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Cita Loka Audio Story" },
+      { title: "Saparasa Audio Story" },
       {
         name: "description",
         content:
-          "Cita Loka — cerita audio interaktif untuk anak tentang bahan pangan lokal Indonesia. Dengarkan petualangan Pandu, Satya, Rara, dan Sasa.",
+          "Saparasa — cerita audio interaktif untuk anak tentang bahan pangan lokal Indonesia. Dengarkan petualangan Pandu, Satya, Rara, dan Sasa.",
       },
     ],
   }),
@@ -22,6 +22,7 @@ export const Route = createFileRoute("/")({
 
 type Character = {
   name: string;
+  path: "/pandu" | "/satya" | "/rara" | "/sasa";
   image: string;
   bg: string;
   accent: string;
@@ -33,6 +34,7 @@ type Character = {
 const characters: Character[] = [
   {
     name: "Pandu",
+    path: "/pandu",
     image: pandu,
     bg: "#41A96E",
     accent: "#FB6D00",
@@ -42,6 +44,7 @@ const characters: Character[] = [
   },
   {
     name: "Satya",
+    path: "/satya",
     image: satya,
     bg: "#2FCFE1",
     accent: "#FFE500",
@@ -51,6 +54,7 @@ const characters: Character[] = [
   },
   {
     name: "Rara",
+    path: "/rara",
     image: rara,
     bg: "#F60F0F",
     accent: "#FB6D00",
@@ -60,6 +64,7 @@ const characters: Character[] = [
   },
   {
     name: "Sasa",
+    path: "/sasa",
     image: sasa,
     bg: "#A16AE5",
     accent: "#FFE500",
@@ -73,7 +78,7 @@ function Logo() {
   return (
     <img
       src={logo}
-      alt="Cita Loka Logo"
+      alt="Saparasa Logo"
       className="h-16 w-auto"
     />
   );
@@ -140,7 +145,7 @@ function Index() {
         {/* Header */}
         <header className="flex items-center justify-between">
           <Logo />
-         
+
         </header>
 
         {/* Hero copy */}
@@ -180,7 +185,7 @@ function Index() {
           {characters.map((c) => (
             <Link
               key={c.name}
-              to={`/${c.name.toLowerCase()}`}
+              to={c.path}
               className="block"
             >
               <CharacterCard c={c} />

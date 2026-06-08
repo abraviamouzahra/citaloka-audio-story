@@ -70,14 +70,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Cita Loka Audio Story" },
+      { title: "Saparasa Audio Story" },
       { name: "description", content: "Audio story pangan lokal untuk anak" },
-      { name: "author", content: "Cita Loka" },
-      { property: "og:title", content: "Cita Loka Audio Story" },
+      { name: "author", content: "Saparasa" },
+      { property: "og:title", content: "Saparasa Audio Story" },
       { property: "og:description", content: "Audio story pangan lokal untuk anak" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@citaloka" },
+      { name: "twitter:site", content: "@saparasa" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },

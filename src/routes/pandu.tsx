@@ -7,7 +7,7 @@ export const Route = createFileRoute("/pandu")({
   component: PanduPage,
   head: () => ({
     meta: [
-      { title: "Pandu — Cita Loka Audio Story" },
+      { title: "Pandu — Saparasa Audio Story" },
       {
         name: "description",
         content:

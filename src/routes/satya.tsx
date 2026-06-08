@@ -7,7 +7,7 @@ export const Route = createFileRoute("/satya")({
   component: SatyaPage,
   head: () => ({
     meta: [
-      { title: "Satya — Cita Loka Audio Story" },
+      { title: "Satya — Saparasa Audio Story" },
       {
         name: "description",
         content:
